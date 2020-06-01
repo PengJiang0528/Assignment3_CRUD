@@ -1,0 +1,103 @@
+body {
+	cursor: url('../pic/shit.png'), default;
+}
+
+h1{
+	text-align: center;
+}
+
+.container{
+	width:100%;
+	height:100%;
+	display: flex;
+	flex-direction: row;
+}
+
+.container div{
+	/*border: 5px solid black;*/
+}
+
+.container > .laobapics{
+	width:18%;
+}
+.container > .laobapics > .laoba_left{
+	background: url('../pic/intro_left.png');
+	background-repeat: repeat-y;
+	background-position: center top; 
+}
+
+.container > .laobapics > .laoba_left{
+	width: 100%;
+	height:100%;
+}
+.container > .laobapics > .laoba_right{
+	background: url('../pic/intro_right.png');
+	background-repeat: repeat-y;
+	background-position: center top; 
+}
+
+.container > .laobapics > .laoba_right{
+	width: 100%;
+	height:100%;
+}
+
+@media screen and (max-width: 1200px){
+	.container > .laobapics > .laoba_right{
+		background-size: 190px;
+	}
+	.container > .laobapics > .laoba_right:hover {
+		background-size: 190px;
+	}
+	.container > .laobapics > .laoba_left{
+		background-size: 190px;
+	}
+	.container > .laobapics > .laoba_left:hover {
+		background-size: 190px;
+	}
+}
+@media screen and (max-width: 1000px){
+	.container > .laobapics > .laoba_right{
+		background-size: 150px;
+	}
+	.container > .laobapics > .laoba_right:hover {
+		background-size: 150px;
+	}
+	.container > .laobapics > .laoba_left{
+		background-size: 150px;
+	}
+	.container > .laobapics > .laoba_left:hover {
+		background-size: 150px;
+	}
+}
+@media screen and (max-width: 800px){
+	.container > .laobapics > .laoba_right{
+		background-size: 100px;
+	}
+	.container > .laobapics > .laoba_right:hover {
+		background-size: 100px;
+	}
+	.container > .laobapics > .laoba_left{
+		background-size: 100px;
+	}
+	.container > .laobapics > .laoba_left:hover {
+		background-size: 100px;
+	}
+}
+
+@media screen and (max-width: 550px){
+	.container > .laobapics > .laoba_right{
+		background-size: 50px;
+	}
+	.container > .laobapics > .laoba_right:hover {
+		background-size: 50px;
+	}
+	.container > .laobapics > .laoba_left{
+		background-size: 50px;
+	}
+	.container > .laobapics > .laoba_left:hover {
+		background-size: 50px;
+	}
+}
+.container > .crud_main{
+	width:64%;
+}
