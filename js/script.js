@@ -54,3 +54,98 @@ document.getElementById("laoba_right").addEventListener("click", function () {
 		audio_ou.play();
 	}
 });
+
+
+
+//crud
+var app = new function() {
+
+this.el = document.getElementById('times');
+
+this.times = ['皮哥：11:00 - 11:15', '迪生：11:15 - 11:45', '帆哥：12:00 - 12:30',
+ '鹏哥：13:00 - 13:20', '皮哥：13:30 - 14:05', 'Charlie：15:00 - 15:15', 
+ 'TA：15:15 - 11:35', '帆哥：17:00 - 17:35', '迪生：18:20 - 18:25'];
+
+this.Count = function(data) {
+	var el = document.getElementById('counter');
+	var schedule = 'time';
+
+	if (data) {
+		if (data > 1) {
+			schedule = '人次';
+		}
+		el.innerHTML = data + ' ' + schedule;
+	} else {
+		el.innerHTML = 'No ' + schedule;
+	}
+};
+
+this.FetchAll = function() {
+	var data = '';
+
+	if (this.times.length > 0) {
+		for (let i = 0; i < this.times.length; i++) {
+			data += '<tr>';
+			data += '<td class="crud_td" style="text-align:center">' + this.times[i] + '</td>';
+			data += '<td class="crud_button" style="width:7.5%"><button onclick="app.Edit(' + i + ')" style="width:100%">Edit</button></td>';
+			data += '<td class="crud_button" style="width:7.5%"><button onclick="app.Delete(' + i + ')" style="width:100%">Delete</button></td>';
+			data += '</tr>';
+		}
+	}
+
+	this.Count(this.times.length);
+	return this.el.innerHTML = data;
+};
+
+this.Add = function() {
+	var el = document.getElementById('add-schedule');
+	// Get the value
+	var time = el.value;
+
+	if (time) {
+		// Add the new value
+		this.times.push(time.trim());
+		// Reset input value
+		el.value = '';
+		// Dislay the new list
+		this.FetchAll();
+	}
+};
+
+this.Edit = function(item) {
+	var el = document.getElementById('edit-schedule');
+	// Display value in the field
+	el.value = this.times[item];
+	// Display fields
+	document.getElementById('spoiler').style.display = 'block';
+	self = this;
+
+	document.getElementById('saveEdit').onsubmit = function() {
+		// Get value
+		var time = el.value;
+
+		if (time) {
+			// Edit value
+			self.times.splice(item, 1, time.trim());
+			// Display the new list
+			self.FetchAll();
+			// Hide fields
+			CloseInput();
+		}
+	}
+};
+
+this.Delete = function(item) {
+	// Delete the current row
+	this.times.splice(item, 1);
+	// Display the new list
+	this.FetchAll();
+};
+
+}
+
+app.FetchAll();
+
+function CloseInput() {
+document.getElementById('spoiler').style.display = 'none';
+}

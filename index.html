@@ -22,7 +22,27 @@
 				<div class="laoba_left" id="laoba_left"></div>
 			</div>
 			<div class="crud_main">
-				2
+				<form action="javascript:void(0);" method="POST" onsubmit="app.Add()"> 
+					<input type="text" id="add-schedule" placeholder="添加撤硕时间" class="add-schedule" >
+					<input type="submit" value="Add" class="Add" >
+				</form>
+
+				<div id="spoiler" role="aria-hidden">
+					<form action="javascript:void(0);" method="POST" id="saveEdit">
+						<input type="text" id="edit-schedule" class="edit-schedule">
+						<input type="submit" value="Edit" class="Edit"/> 
+						<a onclick="CloseInput()" aria-label="Close">&#10006;</a>
+					</form>
+				</div>
+
+				<p id="counter"></p>
+
+				<table class="crud_table">
+					<tr>
+						<th>时间表</th>
+					</tr>
+						<tbody id="times" class="times"></tbody>
+				</table>
 			</div>
 			<div class="laobapics">
 				<div class="laoba_right" id="laoba_right"></div>
